@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebApplication4.Models.Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Create New Employee", "Create")
+</br>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+
+        <th>@Html.DisplayNameFor(model => model.LastName)</th>
+
+        <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+
+        <th>@Html.DisplayNameFor(model => model.EmailAddress)</th>
+
+        <th></th>
+    </tr>
+
+    @foreach(var emp in Model)
+    {
+    <tr>
+        <td>@Html.DisplayFor(modelemp => emp.FirstName)</td>
+
+        <td>@Html.DisplayFor(modelemp => emp.LastName)</td>
+        
+        <td>@Html.DisplayFor(modelemp => emp.PhoneNumber)</td>
+        
+        <td>@Html.DisplayFor(modelemp => emp.EmailAddress)</td>
+        
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = emp.Id })|
+            @Html.ActionLink("Details", "Details", new { id = emp.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = emp.Id }) 
+        </td>
+    </tr>
+    }
+</table>
